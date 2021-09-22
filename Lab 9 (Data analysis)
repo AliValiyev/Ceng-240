@@ -1,0 +1,44 @@
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+def read_and_filter(filepath, upper_bound, lower_bound):
+    data = pd.read_csv(filepath)
+    data = data.drop(data[data['Y'] >= upper_bound].index)
+    data = data.drop(data[data['Y'] <= lower_bound].index)
+    return np.array(data['Y'])
+
+
+def difference_with_average(arr):
+    diff = arr - np.average(arr)
+    return np.round(diff,1)
+
+def normalize_the_data(arr):
+    min_value = arr.min()
+    max_value = arr.max()
+    
+    return (arr - min_value) / (max_value - min_value)
+
+
+def plot_data(data, title, label_of_x, label_of_y, output_path):
+    fig = plt.figure()
+    plt.plot(range(1, len(data)+1), data)
+    plt.title(title)
+    plt.xlabel(label_of_x)
+    plt.ylabel(label_of_y)
+
+    if output_path == "":
+        plt.show()
+    else:
+        plt.savefig(output_path)
+    
+
+def get_averages_in_periods(data, period):
+    averages = []
+    i = 0
+    while i < len(data):
+        averages.append(round(np.average(data[i:i+period]), 1))
+        i += period
+
+    return averages
