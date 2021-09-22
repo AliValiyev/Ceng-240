@@ -1,0 +1,29 @@
+flowername = input()
+colorname = input()
+amount = input()
+amount = int(amount)
+a = int(flowername[0])
+b = int(colorname[-1])
+if a==7:
+   result = "Rose"
+   if amount>100:
+      result = "Invalid!"
+elif a==8:
+    result = "Tulip"
+    if amount>50:
+      result = "Invalid!"
+else:
+    result = "Orchid"
+    if amount>30:
+      result = "Invalid!"
+if b==0 or b==1 or b==2 or b==3:
+    color = "White"
+elif b==4 or b==5 or b==6:
+    color = "Pink"
+elif b==7 or b==8 or b==9:
+    color = "Red"
+amount = str(amount)
+if result != 'Invalid!':
+   print(result+color+amount)
+else:
+  print(result)
