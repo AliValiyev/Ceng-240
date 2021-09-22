@@ -1,0 +1,34 @@
+def accounting(data):
+    list_max = []
+    total_inc = 0
+    total_exp = 0
+    with open(data) as fread:
+        for lineno, line in enumerate(fread):
+            records = line.split(',')
+            company = records[0].strip()
+            inc_sum = 0
+            exp_sum = 0
+            for i in range(1, len(records)):
+                rec = records[i].split(':')
+                if rec[1].strip() == 'I':
+                    inc_sum += int(rec[2].strip())
+                elif rec[1].strip() == 'E':
+                    exp_sum += int(rec[2].strip())
+                    
+
+            list_max.append([company, (inc_sum - exp_sum), inc_sum, exp_sum])
+            total_inc += inc_sum
+            total_exp += exp_sum
+
+    first_place_gain = 0
+    first_place = 0
+    first_place_inc = 0
+    first_place_exp = 0
+    for player in list_max:
+        if player[1] > first_place_gain:
+            first_place_gain = player[1]
+            first_place = player[0]
+            first_place_inc = player[2]
+            first_place_exp = player[3]
+    
+    return [total_inc, total_exp, first_place]
