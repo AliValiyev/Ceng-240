@@ -1,0 +1,14 @@
+def process_transactions(transactions, lower_bound, upper_bound):
+    low = []
+    mid = []
+    high = []
+
+    for t in transactions:
+        if t <= lower_bound:
+            low.append(t)
+        elif t >= upper_bound:
+            high.append(t)
+        else:
+            mid.append(t)
+
+    return [low, mid, high]
