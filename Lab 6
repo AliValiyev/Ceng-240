@@ -1,0 +1,28 @@
+def find_extremities(lst, mode):
+	newlist = []
+	if mode == "max":
+		for i in range(len(lst)):
+			maxval = int(lst[i][0])
+			for j in range(1, len(lst[i])):
+				if maxval < int(lst[i][j]):
+					maxval = int(lst[i][j])
+			newlist.append(maxval)
+
+		total = newlist[0]
+		for i in range(1, len(newlist)):
+			total += newlist[i]
+
+		return [newlist, total / len(newlist)]
+	else:
+		for i in range(len(lst)):
+			minval = int(lst[i][0])
+			for j in range(1, len(lst[i])):
+				if minval > int(lst[i][j]):
+					minval = int(lst[i][j])
+			newlist.append(minval)
+
+		total = newlist[0]
+		for i in range(1, len(newlist)):
+			total += newlist[i]
+
+		return [newlist, total / len(newlist)]
