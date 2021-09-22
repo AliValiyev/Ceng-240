@@ -1,0 +1,19 @@
+d = dict()
+
+username = input()
+password = input()
+d[username] = password
+
+username = input()
+password = input()
+d[username] = password
+
+username = input()
+password = input()
+d[username] = password
+
+user = input()
+passw = d[user]
+
+result = user[-4:] + passw[:-6:-1] + str(len(passw)**2 % 100)
+print(result)
