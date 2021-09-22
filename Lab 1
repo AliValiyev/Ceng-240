@@ -1,0 +1,4 @@
+a = float(input())
+a = (2 * 9.81 * a) ** 0.5
+a = round(a,2)
+print(a)
