@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Apr 26 21:01:27 2021
+@author: alivaliyev
+"""
+
 vending_machine = eval(input())
 requests = eval(input())
 inserted_money = int(input())
