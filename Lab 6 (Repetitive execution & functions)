@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue March 25 19:46:27 2021
+@author: alivaliyev
+"""
+
 def find_extremities(lst, mode):
 	newlist = []
 	if mode == "max":
